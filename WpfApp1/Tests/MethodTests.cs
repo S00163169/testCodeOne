@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace WpfApp1.Tests
 {
@@ -11,9 +6,27 @@ namespace WpfApp1.Tests
     class MethodTests
     {
         [Test]
-        public void ConvertToDegreesTest()
+        public void DegreesResultTest()
         {
-            //var mthd = new 
+            var result = Calculations.ConvertToDegrees(1);
+
+            Assert.That(result, Is.EqualTo(57.2958));
+        } 
+
+        [Test]
+        public void RadianResultTest()
+        {
+            var result = Calculations.ConvertToRadians(1);
+
+            Assert.That(result, Is.EqualTo(0.017453));
+        }
+
+        [Test]
+        public void ConvertToRadiansTest()
+        {
+            var result = Calculations.ConvertToRadians(1);
+
+            Assert.That(result, Is.EqualTo(0.017453));
         }
     }
 }

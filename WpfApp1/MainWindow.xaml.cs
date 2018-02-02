@@ -61,7 +61,7 @@ namespace WpfApp1
                 // Loop to get distance of all customers from office that are under 100 (Kilometers)
                 for (int i = 0; i < template.Count; i++)
                 {
-                    double dist = CalculateDistance(double.Parse(template[i].latitude), double.Parse(template[i].longitude));
+                    double dist = Calculations.CalculateDistance(double.Parse(template[i].latitude), double.Parse(template[i].longitude));
 
                     if (dist <= 100)
                     {
@@ -79,16 +79,18 @@ namespace WpfApp1
                 Console.WriteLine(e.Message);
                 throw;
             }
-
         }
+    }
 
-        static double CalculateDistance(double lattitude, double longitude)
+    public class Calculations
+    {
+        public static double CalculateDistance(double lattitude, double longitude)
         {
             try
             {
                 // Calculates the distance between two point using their latitude and longitude points
                 double absoluteDifference = Math.Abs(-6.257664 - longitude);
-                double distance = Math.Sin(ConvertToRadians(53.339428)) * Math.Sin(ConvertToRadians(lattitude)) + Math.Cos(ConvertToRadians(53.339428)) * Math.Cos(ConvertToRadians(lattitude)) * Math.Cos(absoluteDifference);
+                double distance = Math.Sin(ConvertToRadians(53.339428)) * Math.Sin(ConvertToRadians(lattitude)) + Math.Cos(ConvertToRadians(53.339428)) * Math.Cos(ConvertToRadians(lattitude)) * Math.Cos(ConvertToRadians(absoluteDifference));
                 distance = Math.Acos(distance);
                 distance = ConvertToDegrees(distance);
                 distance = distance * 60 * 1.1515;
@@ -104,16 +106,16 @@ namespace WpfApp1
             }
         }
 
-        static double ConvertToRadians(double value)
+        public static double ConvertToRadians(double value)
         {
-            // Converts degrees to radians
-            return (value * Math.PI / 180);
+            // Converts to Radians
+            return Math.Round((value * Math.PI / 180), 6);
         }
 
-        static double ConvertToDegrees(double value)
+        public static double ConvertToDegrees(double value)
         {
-            // Converts radians to degrees
-            return (value / Math.PI * 180);
+            // Converts to Degrees
+            return Math.Round((value / Math.PI * 180), 6);
         }
     }
 }
