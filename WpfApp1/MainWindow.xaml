@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <Button Content="Click Me" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="221,10,0,0" Grid.ColumnSpan="2" Grid.Row="1" Click="Button_Click"/>
         <Label Content="Customers" HorizontalAlignment="Left" Margin="201,23,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="117" FontWeight="Bold" FontSize="22" FontFamily="Times New Roman"/>
-        <ListBox Name="customerData" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="100" Margin="129,82,0,0" VerticalAlignment="Top" Width="258" Background="#98C9D0"/>
+        <ListBox Name="customerData" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="162" Margin="129,63,0,0" VerticalAlignment="Top" Width="258" Background="#98C9D0"/>
 
     </Grid>
 </Window>
